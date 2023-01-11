@@ -24,3 +24,7 @@ Route::get('/artikel', function () {
 Route::get('/pelatihan', function () {
     return view('Pelatihan');
 });
+
+Route::get('/pelatihan/detail', function () {
+    return view('Pelatihan_Detail');
+});

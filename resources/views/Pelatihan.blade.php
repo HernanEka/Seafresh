@@ -10,7 +10,7 @@
             <div class="row g-5">
                 @for ($i = 0; $i <5 ; $i++)
                 <div class="col-md-6">
-                    <a href="#" class="text-decoration-none text-dark">
+                    <a href="/pelatihan/detail" class="text-decoration-none text-dark">
                         <div class="card h-100">
                             <div class="card-body">
                                 <h3 class="card-title text-primary">Pelatihan 1</h3>
@@ -21,7 +21,7 @@
                             <div class="card-footer bg-white d-flex">
                                 <div class="col mt-1">Batas Pendaftaran 12 Januari 2023</div>
                                 <div class="col text-end">
-                                    <a href="#" class="btn btn-primary">Daftar</a>
+                                    <a href="/pelatihan/detail" class="btn btn-primary">Daftar</a>
                                 </div>
                             </div>
                         </div>
