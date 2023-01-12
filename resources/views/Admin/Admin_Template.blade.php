@@ -22,7 +22,7 @@
             <div class="text-center">
                 <i class="bi bi-person-circle display-1"></i>
                 <h1 class="fs-3 mb-3">Admin</h1>
-                <a href="#" class="btn btn-warning px-5 mb-5">Logout</a>
+                <a href="/logout" class="btn btn-warning px-5 mb-5">Logout</a>
             </div>
             <div class="sidebar-navbar p-3">
                 <div class="nav-item">
@@ -30,6 +30,9 @@
                 </div>
                 <div class="nav-item">
                     <a href="/admin/data-pendaftaran" class="text-decoration-none text-white">Data Pendaftar</a>
+                </div>
+                <div class="nav-item">
+                    <a href="/admin/data-pesan" class="text-decoration-none text-white">Data Pesan</a>
                 </div>
             </div>
         </div>

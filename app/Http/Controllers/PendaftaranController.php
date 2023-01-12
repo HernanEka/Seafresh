@@ -26,6 +26,10 @@ class PendaftaranController extends Controller
 
         $daftar->save();
 
+        $pelatihan = Pelatihan::find($id);
+        $pelatihan->pendaftar = $pelatihan->pendaftar + 1;
+        $pelatihan->save();
+
         return redirect('/daftar_pelatihan');
     }
 
@@ -33,5 +37,14 @@ class PendaftaranController extends Controller
     {
         $pendaftaran = Pendaftaran::all();
         return view('Admin.Data_Pendaftar', compact('pendaftaran'));
+    }
+
+    public function ubah(Request $request, $id)
+    {
+        $pendaftaran = Pendaftaran::find($id);
+        $pendaftaran->status = $request->status;
+        $pendaftaran->save();
+
+        return back();
     }
 }

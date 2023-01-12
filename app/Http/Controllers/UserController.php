@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pesan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +32,12 @@ class UserController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+
+            if(auth()->user()->roles == 'admin'){
+                return redirect()->intended('/admin');
+            }
+
+            // return redirect()->intended('/');
         };
     }
 
@@ -44,5 +50,24 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function pesan(Request $request)
+    {
+        $pesan = new Pesan();
+
+        $pesan->nama = $request->nama;
+        $pesan->email = $request->email;
+        $pesan->pesan = $request->pesan;
+        $pesan->save();
+
+        return back()->with(['pesan' => 'Pesan Berhasil Dikirim']);
+    }
+
+    public function data_pesan()
+    {
+        $pesan = Pesan::latest()->get();
+
+        return view('Admin.Data_Pesan', compact('pesan'));
     }
 }

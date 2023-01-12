@@ -15,6 +15,14 @@
 </head>
 
 <body>
+
+    @if (session()->has('pesan'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('pesan') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     {{-- navbar --}}
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-bottom">
         <div class="container-fluid">
@@ -35,6 +43,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="/pelatihan">Pelatihan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/#contactUs">Kontak Kami</a>
                     </li>
                 </ul>
                 @guest
@@ -82,7 +93,8 @@
                             <label for="floatingInput" class="text-primary">Alamat Email</label>
                         </div>
                         <div class="form-floating">
-                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="floatingPassword"
+                                placeholder="Password">
                             <label for="floatingPassword" class="text-primary">Password</label>
                         </div>
                     </div>
@@ -164,10 +176,11 @@
 
                     <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Artikel</h6>
-                        <p>
+                        <a href="/artikel"
+                            class="text-uppercase mb-4 fw-bold text-decoration-none text-white">Artikel</a>
+                        {{-- <p>
                             <a href="/artikel" class="text-white">Artikel Budidaya</a>
-                        </p>
+                        </p> --}}
                         {{-- <p>
                             <a class="text-white">Artikel 2</a>
                         </p>
@@ -184,10 +197,9 @@
 
                     <!-- Grid column -->
                     <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">
-                            Pelatihan
-                        </h6>
-                        <p>
+                        <a href="/pelatihan"
+                            class="text-uppercase mb-4 fw-bold text-decoration-none text-white">Pelatihan</a>
+                        {{-- <p>
                             <a class="text-white">Pelatihan 1</a>
                         </p>
                         <p>
@@ -198,7 +210,7 @@
                         </p>
                         <p>
                             <a class="text-white">Pelatihan 4</a>
-                        </p>
+                        </p> --}}
                     </div>
 
                     <!-- Grid column -->

@@ -26,9 +26,17 @@
                 <p>Sisa Kuota : {{ $pelatihan->kuota - $pelatihan->pendaftar }} Orang</p>
                 <hr>
                 <div class="mb-5 text-end">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalDaftar">
-                        Daftar Pelatihan
-                    </button>
+                    @auth
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalDaftar">
+                            Daftar Pelatihan
+                        </button>
+                    @endauth
+
+                    @guest
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalLogin">
+                            Daftar Pelatihan
+                        </button>
+                    @endguest
                 </div>
             </div>
         </div>

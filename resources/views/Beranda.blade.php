@@ -55,7 +55,32 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <section id="contactUs">
+        <div class="container my-5">
+            <div class="text-center">
+                <h1 class="display-5">Kontak Kami</h1>
+            </div>
+            <form action="/kontak" method="post">
+                @csrf
+                <div class="row g-5 mb-2">
+                    <div class="col">
+                        <label for="nama" class="form-label">Nama Pengirim</label>
+                        <input type="text" class="form-control" name="nama">
+                    </div>
+                    <div class="col">
+                        <label for="email" class="form-label">Email Pengirim</label>
+                        <input type="text" class="form-control" name="email">
+                    </div>
+                </div>
+                <label for="pesan" class="form-label">Isi Pesan</label>
+                <textarea name="pesan" id="pesan" rows="10" class="form-control"></textarea>
+                <div class="text-end mt-3">
+                    <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                </div>
+            </form>
         </div>
     </section>
 @endsection
