@@ -26,10 +26,10 @@
             </div>
             <div class="sidebar-navbar p-3">
                 <div class="nav-item">
-                    <a href="#" class="text-decoration-none text-white">Data Pelatihan</a>
+                    <a href="/admin" class="text-decoration-none text-white">Data Pelatihan</a>
                 </div>
                 <div class="nav-item">
-                    <a href="#" class="text-decoration-none text-white">Data Pendaftar</a>
+                    <a href="/admin/data-pendaftaran" class="text-decoration-none text-white">Data Pendaftar</a>
                 </div>
             </div>
         </div>

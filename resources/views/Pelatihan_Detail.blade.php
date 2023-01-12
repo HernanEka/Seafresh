@@ -39,15 +39,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Daftar Pelatihan {{ $pelatihan->judul }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    ...
+                <div class="modal-body text-center">
+                    Yakin Daftar Pelatihan?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
+                    <button type="button" class="btn btn-secondary text-start" data-bs-dismiss="modal">Tidak</button>
+                    <a href="/daftar-pelatihan/{{ $pelatihan->id }}" class="btn btn-primary">Ya</a>
                 </div>
             </div>
         </div>

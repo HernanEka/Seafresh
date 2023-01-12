@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\UserController;
+use App\Models\Pendaftaran;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,17 +32,13 @@ Route::get('/artikel', function () {
 Route::get('/pelatihan', [PelatihanController::class, 'index']);
 Route::get('/pelatihan/detail/{id}', [PelatihanController::class, 'detail']);
 
-Route::get('/pelatihan/detail', function () {
-    return view('Pelatihan_Detail');
-});
-
-Route::get('/daftar_pelatihan', function () {
-    return view('Daftar_Pelatihan');
-});
+Route::get('/daftar-pelatihan/{id}', [PendaftaranController::class, 'daftar']);
+Route::get('/daftar_pelatihan', [PendaftaranController::class, 'index']);
 
 
 Route::get('/admin', [PelatihanController::class, 'data']);
 Route::post('/admin/input-pelatihan', [PelatihanController::class, 'input']);
+Route::get('/admin/data-pendaftaran', [PendaftaranController::class, 'data']);
 Route::get('/admin/delete-pelatihan/{id}', [PelatihanController::class, 'delete']);
 Route::post('/admin/update-pelatihan/{id}', [PelatihanController::class, 'update']);
 Route::get('/admin/detail-pelatihan/{id}', [PelatihanController::class, 'data_detail']);
