@@ -37,7 +37,7 @@ class UserController extends Controller
                 return redirect()->intended('/admin');
             }
 
-            // return redirect()->intended('/');
+            return redirect()->intended('/');
         };
     }
 
