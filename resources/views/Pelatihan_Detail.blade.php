@@ -41,7 +41,7 @@
                 <hr>
             </div>
             <div class="mb-5 text-end">
-                <a href="#" class="btn btn-primary">Daftar</a>
+                <a href="/daftar_pelatihan" class="btn btn-primary">Daftar</a>
             </div>
         </div>
     </section>

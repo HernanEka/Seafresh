@@ -28,3 +28,14 @@ Route::get('/pelatihan', function () {
 Route::get('/pelatihan/detail', function () {
     return view('Pelatihan_Detail');
 });
+
+Route::get('/daftar_pelatihan', function () {
+    return view('Daftar_Pelatihan');
+});
+
+
+Route::get('/admin', function () {
+    return view('Admin.Data_Pelatihan');
+});
+
+
