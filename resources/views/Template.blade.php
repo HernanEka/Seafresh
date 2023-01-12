@@ -37,79 +37,104 @@
                         <a class="nav-link active" href="/pelatihan">Pelatihan</a>
                     </li>
                 </ul>
-                <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
-                    data-bs-target="#modalRegister">
-                    Daftar
-                </button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
-                    Login
-                </button>
+                @guest
+                    <button type="button" class="btn btn-outline-primary me-3" data-bs-toggle="modal"
+                        data-bs-target="#modalRegister">
+                        Daftar
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">
+                        Login
+                    </button>
+                @endguest
+
+                @auth
+                    <div class="dropdown">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Daftar Pelatihan</a></li>
+                            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                @endauth
             </div>
         </div>
     </nav>
 
     <!-- Modal Login -->
-    <div class="modal fade" id="modalLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h1 class="modal-title fs-4 text-primary w-100" id="staticBackdropLabel">Login</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput" class="text-primary">Alamat Email</label>
+    <form action="/login" method="post">
+        @csrf
+        <div class="modal fade" id="modalLogin" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h1 class="modal-title fs-4 text-primary w-100" id="staticBackdropLabel">Login</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword" class="text-primary">Password</label>
+                    <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control" id="floatingInput"
+                                placeholder="name@example.com">
+                            <label for="floatingInput" class="text-primary">Alamat Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword" class="text-primary">Password</label>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary w-100">Login</button>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
     <!-- Modal Register -->
-    <div class="modal fade" id="modalRegister" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h1 class="modal-title fs-4 text-primary w-100" id="staticBackdropLabel">Daftar Akun</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputNama"
-                            placeholder="Nama Lengkap">
-                        <label for="floatingInputNama" class="text-primary">Nama Lengkap</label>
+    <form action="/daftar" method="post">
+        @csrf
+        <div class="modal fade" id="modalRegister" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h1 class="modal-title fs-4 text-primary w-100" id="staticBackdropLabel">Daftar Akun</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInputNama"
-                            placeholder="Nama Lengkap">
-                        <label for="floatingInputNama" class="text-primary">Nomor Telepon</label>
+                    <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            <input type="text" name="name" class="form-control" id="floatingInputNama"
+                                placeholder="Nama Lengkap">
+                            <label for="floatingInputNama" class="text-primary">Nama Lengkap</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" name="telepon" class="form-control" id="floatingInputNama"
+                                placeholder="Nama Lengkap">
+                            <label for="floatingInputNama" class="text-primary">Nomor Telepon</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" class="form-control" id="floatingInput"
+                                placeholder="name@example.com">
+                            <label for="floatingInput" class="text-primary">Alamat Email</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" name="password" class="form-control" id="floatingPassword"
+                                placeholder="Password">
+                            <label for="floatingPassword" class="text-primary">Password</label>
+                        </div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput"
-                            placeholder="name@example.com">
-                        <label for="floatingInput" class="text-primary">Alamat Email</label>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary w-100">Daftar</button>
                     </div>
-                    <div class="form-floating">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                        <label for="floatingPassword" class="text-primary">Password</label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary w-100">Daftar</button>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
     {{-- navbar end --}}
 

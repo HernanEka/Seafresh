@@ -9,8 +9,14 @@ class PelatihanController extends Controller
 {
     public function index()
     {
-        $pelatihan = Pelatihan::lastet()->get();
+        $pelatihan = Pelatihan::latest()->get();
         return view('Pelatihan', compact('pelatihan'));
+    }
+
+    public function detail($id)
+    {
+        $pelatihan = Pelatihan::find($id);
+        return view('Pelatihan_Detail', compact('pelatihan'));
     }
 
     public function data()
@@ -32,7 +38,7 @@ class PelatihanController extends Controller
         return redirect('/admin');
     }
 
-    public function detail($id)
+    public function data_detail($id)
     {
         $pelatihan = Pelatihan::find($id);
         return view('Admin.Detail_Pelatihan', compact('pelatihan'));

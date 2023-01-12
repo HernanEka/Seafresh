@@ -3,7 +3,7 @@
 @section('data')
     <div class="col p-5">
         <a href="/admin" class="text-decoration-none text-dark fs-4"><i class="bi bi-arrow-left"></i> Detail Pelatihan</a>
-        <div class="text-center mb-5 w-100">
+        <div class="text-center mb-5">
             <h1 class="display-5 text-capitalize">{{ $pelatihan->judul }}</h1>
         </div>
         <div class="mb-3">

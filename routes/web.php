@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PelatihanController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +19,16 @@ Route::get('/', function () {
     return view('Beranda');
 });
 
+Route::post('/daftar', [UserController::class, 'daftar']);
+Route::post('/login', [UserController::class, 'login']);
+Route::get('/logout', [UserController::class, 'logout']);
+
 Route::get('/artikel', function () {
     return view('Artikel');
 });
 
 Route::get('/pelatihan', [PelatihanController::class, 'index']);
+Route::get('/pelatihan/detail/{id}', [PelatihanController::class, 'detail']);
 
 Route::get('/pelatihan/detail', function () {
     return view('Pelatihan_Detail');
@@ -37,6 +43,6 @@ Route::get('/admin', [PelatihanController::class, 'data']);
 Route::post('/admin/input-pelatihan', [PelatihanController::class, 'input']);
 Route::get('/admin/delete-pelatihan/{id}', [PelatihanController::class, 'delete']);
 Route::post('/admin/update-pelatihan/{id}', [PelatihanController::class, 'update']);
-Route::get('/admin/detail-pelatihan/{id}', [PelatihanController::class, 'detail']);
+Route::get('/admin/detail-pelatihan/{id}', [PelatihanController::class, 'data_detail']);
 
 
